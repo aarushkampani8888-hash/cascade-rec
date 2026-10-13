@@ -1,4 +1,4 @@
-# cascade-rec: a multi-stage hybrid recommender, measured honestly
+# a multi-stage hybrid recommender
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-LightGCN%20%7C%20SASRec-ee4c2c)
