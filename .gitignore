@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.DS_Store
+results/quick/
+results/cache.pkl
+results/*.log
+data/ml-100k/
+data/ml-1m/
+data/*.zip
+data/*.jsonl*
+*-github.zip

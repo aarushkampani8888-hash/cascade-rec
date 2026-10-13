@@ -1,0 +1,760 @@
+{
+  "config": {
+    "dataset": "ml-100k",
+    "data_root": "data",
+    "out": "results",
+    "seed": 0,
+    "cold_frac": 0.2,
+    "cold_keep": 5,
+    "ease_lambdas": [
+      50,
+      100,
+      250,
+      500,
+      1000
+    ],
+    "n_candidates": {
+      "ease": 150,
+      "sasrec": 150,
+      "lightgcn": 150,
+      "itemknn": 50,
+      "content": 50,
+      "pop": 25
+    },
+    "sasrec_max_epochs": 300,
+    "lightgcn_max_epochs": 400,
+    "ranker_slices": 3,
+    "ablations": true,
+    "threads": 2
+  },
+  "data": {
+    "dataset": "ml-100k",
+    "users": 943,
+    "items": 1682,
+    "interactions": 100000,
+    "density": 0.06305,
+    "cold_users": 189
+  },
+  "tuned": {
+    "ease_lambda": 50,
+    "lightgcn_epochs": 130,
+    "sasrec_epochs": 170
+  },
+  "val_ndcg10": {
+    "pop": 0.03357714888265761,
+    "itemknn": 0.06374433251362109,
+    "ease": 0.08572183811497616,
+    "content": 0.0030424012202406544,
+    "lightgcn": 0.06951119793929583,
+    "sasrec": 0.08567443365241455
+  },
+  "params": {
+    "pop": {
+      "half_life_days": 30.0
+    },
+    "itemknn": {
+      "k": 100,
+      "shrink": 10.0
+    },
+    "ease": {
+      "lambda": 50
+    },
+    "content": {
+      "decay": 0.9,
+      "weights(genre,title,decade)": [
+        1.0,
+        0.5,
+        0.5
+      ]
+    },
+    "lightgcn": {
+      "dim": 64,
+      "layers": 3,
+      "lr": 0.01,
+      "reg": 0.0001,
+      "epochs": 130
+    },
+    "sasrec": {
+      "dim": 64,
+      "max_len": 50,
+      "layers": 2,
+      "heads": 2,
+      "dropout": 0.2,
+      "lr": 0.002,
+      "epochs": 170
+    }
+  },
+  "candidates": {
+    "mean_per_user": 318.09013785790034,
+    "recall_union": 0.8536585365853658,
+    "recall_union_cold": 0.8148148148148148,
+    "recall_per_retriever": {
+      "ease": 0.5768822905620361,
+      "sasrec": 0.6744432661717922,
+      "lightgcn": 0.6436903499469777,
+      "itemknn": 0.33828207847295866,
+      "content": 0.08271474019088017,
+      "pop": 0.1378579003181336
+    }
+  },
+  "build_sec": 1851.6,
+  "ranker_grid": [
+    {
+      "num_leaves": 7,
+      "min_data_in_leaf": 100,
+      "raw_scores": true,
+      "init_blend": false,
+      "val_ndcg10": 0.1304,
+      "trees": 156
+    },
+    {
+      "num_leaves": 7,
+      "min_data_in_leaf": 100,
+      "raw_scores": true,
+      "init_blend": true,
+      "val_ndcg10": 0.14,
+      "trees": 47
+    },
+    {
+      "num_leaves": 7,
+      "min_data_in_leaf": 100,
+      "raw_scores": false,
+      "init_blend": false,
+      "val_ndcg10": 0.1352,
+      "trees": 361
+    },
+    {
+      "num_leaves": 7,
+      "min_data_in_leaf": 100,
+      "raw_scores": false,
+      "init_blend": true,
+      "val_ndcg10": 0.139,
+      "trees": 36
+    },
+    {
+      "num_leaves": 7,
+      "min_data_in_leaf": 400,
+      "raw_scores": true,
+      "init_blend": false,
+      "val_ndcg10": 0.1381,
+      "trees": 314
+    },
+    {
+      "num_leaves": 7,
+      "min_data_in_leaf": 400,
+      "raw_scores": true,
+      "init_blend": true,
+      "val_ndcg10": 0.1403,
+      "trees": 46
+    },
+    {
+      "num_leaves": 7,
+      "min_data_in_leaf": 400,
+      "raw_scores": false,
+      "init_blend": false,
+      "val_ndcg10": 0.1317,
+      "trees": 211
+    },
+    {
+      "num_leaves": 7,
+      "min_data_in_leaf": 400,
+      "raw_scores": false,
+      "init_blend": true,
+      "val_ndcg10": 0.1387,
+      "trees": 34
+    },
+    {
+      "num_leaves": 31,
+      "min_data_in_leaf": 100,
+      "raw_scores": true,
+      "init_blend": false,
+      "val_ndcg10": 0.1302,
+      "trees": 200
+    },
+    {
+      "num_leaves": 31,
+      "min_data_in_leaf": 100,
+      "raw_scores": true,
+      "init_blend": true,
+      "val_ndcg10": 0.1386,
+      "trees": 11
+    },
+    {
+      "num_leaves": 31,
+      "min_data_in_leaf": 100,
+      "raw_scores": false,
+      "init_blend": false,
+      "val_ndcg10": 0.1318,
+      "trees": 63
+    },
+    {
+      "num_leaves": 31,
+      "min_data_in_leaf": 100,
+      "raw_scores": false,
+      "init_blend": true,
+      "val_ndcg10": 0.1383,
+      "trees": 12
+    },
+    {
+      "num_leaves": 31,
+      "min_data_in_leaf": 400,
+      "raw_scores": true,
+      "init_blend": false,
+      "val_ndcg10": 0.129,
+      "trees": 155
+    },
+    {
+      "num_leaves": 31,
+      "min_data_in_leaf": 400,
+      "raw_scores": true,
+      "init_blend": true,
+      "val_ndcg10": 0.1363,
+      "trees": 100
+    },
+    {
+      "num_leaves": 31,
+      "min_data_in_leaf": 400,
+      "raw_scores": false,
+      "init_blend": false,
+      "val_ndcg10": 0.1296,
+      "trees": 263
+    },
+    {
+      "num_leaves": 31,
+      "min_data_in_leaf": 400,
+      "raw_scores": false,
+      "init_blend": true,
+      "val_ndcg10": 0.1393,
+      "trees": 15
+    },
+    {
+      "num_leaves": "-",
+      "min_data_in_leaf": "-",
+      "raw_scores": "-",
+      "init_blend": "blend only",
+      "val_ndcg10": 0.1302,
+      "trees": 0
+    }
+  ],
+  "ranker_settings": {
+    "num_leaves": 7,
+    "min_data_in_leaf": 400,
+    "raw_scores": true,
+    "init_blend": true
+  },
+  "ranker_trees": 46,
+  "blend_weights": {
+    "pop": 0.003,
+    "itemknn": 0.0,
+    "ease": 0.043,
+    "content": 0.07,
+    "lightgcn": 0.308,
+    "sasrec": 0.576
+  },
+  "ablations": {
+    "pop": {
+      "NDCG@10": 0.10672688296370007,
+      "delta_vs_full": {
+        "diff": -0.005247074326267942,
+        "ci_low": -0.010992684348877416,
+        "ci_high": 0.00019652563892038905,
+        "p_le_0": 0.9685
+      },
+      "NDCG@10_cold": 0.08151903312394733
+    },
+    "itemknn": {
+      "NDCG@10": 0.10421551900850619,
+      "delta_vs_full": {
+        "diff": -0.007758438281461817,
+        "ci_low": -0.014544752556399379,
+        "ci_high": -0.0014498013262578685,
+        "p_le_0": 0.9915
+      },
+      "NDCG@10_cold": 0.07811251091904546
+    },
+    "ease": {
+      "NDCG@10": 0.104053400932332,
+      "delta_vs_full": {
+        "diff": -0.007920556357636025,
+        "ci_low": -0.015604743504254717,
+        "ci_high": -0.00027059010520053353,
+        "p_le_0": 0.9795
+      },
+      "NDCG@10_cold": 0.08088620058546138
+    },
+    "content": {
+      "NDCG@10": 0.10282352601089687,
+      "delta_vs_full": {
+        "diff": -0.00915043127907115,
+        "ci_low": -0.017749141519570993,
+        "ci_high": -0.001294531918635948,
+        "p_le_0": 0.988
+      },
+      "NDCG@10_cold": 0.08204783308198384
+    },
+    "lightgcn": {
+      "NDCG@10": 0.104352025239923,
+      "delta_vs_full": {
+        "diff": -0.007621932050045017,
+        "ci_low": -0.016393845735043745,
+        "ci_high": 0.0002058306265839061,
+        "p_le_0": 0.9715
+      },
+      "NDCG@10_cold": 0.07847716245530416
+    },
+    "sasrec": {
+      "NDCG@10": 0.08281247547615556,
+      "delta_vs_full": {
+        "diff": -0.029161481813812465,
+        "ci_low": -0.04157114087510144,
+        "ci_high": -0.01741604868175491,
+        "p_le_0": 1.0
+      },
+      "NDCG@10_cold": 0.061289102592740334
+    },
+    "side": {
+      "NDCG@10": 0.10760967463601764,
+      "delta_vs_full": {
+        "diff": -0.004364282653950353,
+        "ci_low": -0.010080057889041743,
+        "ci_high": 0.0012366030728261884,
+        "p_le_0": 0.9365
+      },
+      "NDCG@10_cold": 0.08493170771653846
+    }
+  },
+  "results": [
+    {
+      "model": "pop",
+      "Recall@10": 0.0816542948038176,
+      "NDCG@10": 0.03819489970039034,
+      "Recall@20": 0.11770943796394485,
+      "NDCG@20": 0.047243424066874255,
+      "MRR": 0.034146379084397695,
+      "NDCG@10_ci": [
+        0.02965501746215556,
+        0.0473966197245952
+      ],
+      "NDCG@10_warm": 0.038674841765406136,
+      "NDCG@10_cold": 0.03628021019233793,
+      "Coverage@10": 0.04756242568370987,
+      "Novelty@10": 1.6624161005020142,
+      "hybrid_minus_this": {
+        "diff": 0.07377905758957769,
+        "ci_low": 0.057262593256800005,
+        "ci_high": 0.09046386616508396,
+        "p_le_0": 0.0
+      },
+      "hybrid_minus_this_cold": {
+        "diff": 0.04374678922896287,
+        "ci_low": 0.008298727836546288,
+        "ci_high": 0.07841559600088306,
+        "p_le_0": 0.006
+      }
+    },
+    {
+      "model": "itemknn",
+      "Recall@10": 0.10604453870625663,
+      "NDCG@10": 0.05951458892331596,
+      "Recall@20": 0.18981972428419935,
+      "NDCG@20": 0.0804489666085611,
+      "MRR": 0.06016129401893518,
+      "NDCG@10_ci": [
+        0.047858218472815996,
+        0.07179220030244764
+      ],
+      "NDCG@10_warm": 0.05953711804400967,
+      "NDCG@10_cold": 0.0594247108439347,
+      "Coverage@10": 0.3507728894173603,
+      "Novelty@10": 2.359175682067871,
+      "hybrid_minus_this": {
+        "diff": 0.05245936836665206,
+        "ci_low": 0.03700586743460989,
+        "ci_high": 0.0676821798360021,
+        "p_le_0": 0.0
+      },
+      "hybrid_minus_this_cold": {
+        "diff": 0.020602288577366113,
+        "ci_low": -0.007451117116335709,
+        "ci_high": 0.05024728369676729,
+        "p_le_0": 0.0785
+      }
+    },
+    {
+      "model": "ease",
+      "Recall@10": 0.13891834570519618,
+      "NDCG@10": 0.07030792120491298,
+      "Recall@20": 0.21208907741251326,
+      "NDCG@20": 0.0886975317259468,
+      "MRR": 0.06275312898224446,
+      "NDCG@10_ci": [
+        0.058648804776646246,
+        0.08351004087647763
+      ],
+      "NDCG@10_warm": 0.07412850246641076,
+      "NDCG@10_cold": 0.05506602559026043,
+      "Coverage@10": 0.3644470868014269,
+      "Novelty@10": 2.4206762313842773,
+      "hybrid_minus_this": {
+        "diff": 0.04166603608505503,
+        "ci_low": 0.028796181756585857,
+        "ci_high": 0.05437531778596713,
+        "p_le_0": 0.0
+      },
+      "hybrid_minus_this_cold": {
+        "diff": 0.024960973831040376,
+        "ci_low": 0.0014455783595734,
+        "ci_high": 0.05133434902699262,
+        "p_le_0": 0.0205
+      }
+    },
+    {
+      "model": "content",
+      "Recall@10": 0.009544008483563097,
+      "NDCG@10": 0.0043912010210269406,
+      "Recall@20": 0.02014846235418876,
+      "NDCG@20": 0.007022390302704515,
+      "MRR": 0.007716556872198697,
+      "NDCG@10_ci": [
+        0.0015391020335603644,
+        0.007989949108064612
+      ],
+      "NDCG@10_warm": 0.0037664092402711195,
+      "NDCG@10_cold": 0.006883756590814715,
+      "Coverage@10": 0.3692033293697979,
+      "Novelty@10": 5.612714767456055,
+      "hybrid_minus_this": {
+        "diff": 0.10758275626894107,
+        "ci_low": 0.0922924415251043,
+        "ci_high": 0.12333155765804954,
+        "p_le_0": 0.0
+      },
+      "hybrid_minus_this_cold": {
+        "diff": 0.0731432428304861,
+        "ci_low": 0.0452446212920269,
+        "ci_high": 0.10475073689674119,
+        "p_le_0": 0.0
+      }
+    },
+    {
+      "model": "lightgcn",
+      "Recall@10": 0.12725344644750794,
+      "NDCG@10": 0.06497153338258316,
+      "Recall@20": 0.2014846235418876,
+      "NDCG@20": 0.08362658260882971,
+      "MRR": 0.061615720909925835,
+      "NDCG@10_ci": [
+        0.05328794367167031,
+        0.07810060644327012
+      ],
+      "NDCG@10_warm": 0.06971757516690759,
+      "NDCG@10_cold": 0.046037588909669844,
+      "Coverage@10": 0.4982164090368609,
+      "Novelty@10": 2.7045786380767822,
+      "hybrid_minus_this": {
+        "diff": 0.047002423907384856,
+        "ci_low": 0.03274046752684676,
+        "ci_high": 0.0606420469813431,
+        "p_le_0": 0.0
+      },
+      "hybrid_minus_this_cold": {
+        "diff": 0.033989410511630964,
+        "ci_low": 0.009622525717466246,
+        "ci_high": 0.059149491114445375,
+        "p_le_0": 0.0015
+      }
+    },
+    {
+      "model": "sasrec",
+      "Recall@10": 0.16542948038176034,
+      "NDCG@10": 0.08979535386455999,
+      "Recall@20": 0.23753976670201485,
+      "NDCG@20": 0.10781379273417069,
+      "MRR": 0.08134294640818106,
+      "NDCG@10_ci": [
+        0.0759466507839242,
+        0.10396364820947059
+      ],
+      "NDCG@10_warm": 0.08718790718028974,
+      "NDCG@10_cold": 0.10019754857323596,
+      "Coverage@10": 0.4042806183115339,
+      "Novelty@10": 2.7662253379821777,
+      "hybrid_minus_this": {
+        "diff": 0.022178603425408037,
+        "ci_low": 0.007851533712201701,
+        "ci_high": 0.03596075881207579,
+        "p_le_0": 0.0
+      },
+      "hybrid_minus_this_cold": {
+        "diff": -0.02017054915193515,
+        "ci_low": -0.051725849341686544,
+        "ci_high": 0.008408136121137484,
+        "p_le_0": 0.91
+      }
+    },
+    {
+      "model": "hybrid (learned ranker)",
+      "Recall@10": 0.2067868504772004,
+      "NDCG@10": 0.111973957289968,
+      "Recall@20": 0.2948038176033934,
+      "NDCG@20": 0.13417432939174023,
+      "MRR": 0.09925244573701458,
+      "NDCG@10_ci": [
+        0.09642787164510364,
+        0.12831028212042786
+      ],
+      "NDCG@10_warm": 0.11998188174245886,
+      "NDCG@10_cold": 0.08002699942130082,
+      "Coverage@10": 0.45481569560047563,
+      "Novelty@10": 2.7244532108306885
+    },
+    {
+      "model": "linear blend (tuned)",
+      "Recall@10": 0.18451749734888653,
+      "NDCG@10": 0.10258355664256394,
+      "Recall@20": 0.2916224814422057,
+      "NDCG@20": 0.12962574276640237,
+      "MRR": 0.09458638778384859,
+      "NDCG@10_ci": [
+        0.08764226041648608,
+        0.1184032482459454
+      ],
+      "NDCG@10_warm": 0.10850385763668965,
+      "NDCG@10_cold": 0.0789650013538297,
+      "Coverage@10": 0.41379310344827586,
+      "Novelty@10": 2.590008497238159,
+      "hybrid_minus_this": {
+        "diff": 0.009390400647404068,
+        "ci_low": 0.0024404885059756505,
+        "ci_high": 0.016232248354593033,
+        "p_le_0": 0.0045
+      },
+      "hybrid_minus_this_cold": {
+        "diff": 0.0010619980674711127,
+        "ci_low": -0.011673477531441441,
+        "ci_high": 0.015061951577737107,
+        "p_le_0": 0.4335
+      }
+    }
+  ],
+  "shap_group_importance": {
+    "warm": {
+      "sasrec": 1.0739,
+      "lightgcn": 0.6766,
+      "ease": 0.1637,
+      "content": 0.058,
+      "taste": 0.0117,
+      "agreement": 0.01,
+      "user": 0.0099,
+      "item": 0.0087,
+      "itemknn": 0.0066,
+      "pop": 0.0066
+    },
+    "cold": {
+      "sasrec": 1.0669,
+      "lightgcn": 0.7125,
+      "ease": 0.1432,
+      "content": 0.0728,
+      "taste": 0.0137,
+      "user": 0.0107,
+      "item": 0.0105,
+      "agreement": 0.0102,
+      "pop": 0.0066,
+      "itemknn": 0.0055
+    }
+  },
+  "tree_correction_importance": {
+    "warm": {
+      "lightgcn": 0.0511,
+      "sasrec": 0.0318,
+      "content": 0.0132,
+      "taste": 0.0117,
+      "agreement": 0.01,
+      "user": 0.0099,
+      "item": 0.0087,
+      "itemknn": 0.0067,
+      "ease": 0.0051,
+      "pop": 0.0035
+    },
+    "cold": {
+      "lightgcn": 0.062,
+      "sasrec": 0.0294,
+      "content": 0.0157,
+      "taste": 0.0137,
+      "user": 0.0107,
+      "item": 0.0105,
+      "agreement": 0.0102,
+      "ease": 0.0066,
+      "itemknn": 0.0055,
+      "pop": 0.004
+    }
+  },
+  "examples": {
+    "259": {
+      "cold": false,
+      "recent_history": [
+        "Long Kiss Goodnight, The",
+        "French Kiss",
+        "Maltese Falcon, The",
+        "Dazed and Confused",
+        "Strange Days"
+      ],
+      "recommendations": [
+        {
+          "item": 31,
+          "title": "Star Wars",
+          "reasons": [
+            "often watched alongside things in your history",
+            "people whose overall taste resembles yours watched it"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.933,
+            "graph neighbours (LightGCN)": 0.728,
+            "co-occurrence (EASE)": 0.33,
+            "recent popularity": 0.017
+          }
+        },
+        {
+          "item": 169,
+          "title": "Pulp Fiction",
+          "reasons": [
+            "people whose overall taste resembles yours watched it",
+            "matches genres you've been watching (Crime, Drama)"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.915,
+            "graph neighbours (LightGCN)": 0.686,
+            "co-occurrence (EASE)": 0.167,
+            "content match": 0.041
+          }
+        },
+        {
+          "item": 124,
+          "title": "Fargo",
+          "reasons": [
+            "people whose overall taste resembles yours watched it",
+            "often watched alongside things in your history"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.761,
+            "graph neighbours (LightGCN)": 0.761,
+            "co-occurrence (EASE)": 0.241,
+            "content match": 0.052
+          }
+        },
+        {
+          "item": 39,
+          "title": "Terminator 2: Judgment Day",
+          "reasons": [
+            "matches genres you've been watching (Action, Sci-Fi)",
+            "often watched alongside things in your history"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.874,
+            "graph neighbours (LightGCN)": 0.595,
+            "co-occurrence (EASE)": 0.175,
+            "content match": 0.037
+          }
+        },
+        {
+          "item": 36,
+          "title": "Fugitive, The",
+          "reasons": [
+            "matches genres you've been watching (Action, Thriller)",
+            "often watched alongside things in your history"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.884,
+            "graph neighbours (LightGCN)": 0.581,
+            "co-occurrence (EASE)": 0.166,
+            "content match": 0.044
+          }
+        }
+      ]
+    },
+    "712": {
+      "cold": true,
+      "recent_history": [
+        "Sound of Music, The",
+        "Liar Liar",
+        "Room with a View, A",
+        "Roommates",
+        "Bedknobs and Broomsticks"
+      ],
+      "recommendations": [
+        {
+          "item": 44,
+          "title": "Pretty Woman",
+          "reasons": [
+            "follows on from what you've watched lately, especially Sound of Music, The",
+            "people whose overall taste resembles yours watched it"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.963,
+            "graph neighbours (LightGCN)": 0.584,
+            "content match": 0.052,
+            "co-occurrence (EASE)": 0.036
+          }
+        },
+        {
+          "item": 698,
+          "title": "Home Alone",
+          "reasons": [
+            "follows on from what you've watched lately, especially Sound of Music, The",
+            "matches genres you've been watching (Children's, Comedy)"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.977,
+            "graph neighbours (LightGCN)": 0.556,
+            "content match": 0.034,
+            "co-occurrence (EASE)": 0.032
+          }
+        },
+        {
+          "item": 66,
+          "title": "Sleepless in Seattle",
+          "reasons": [
+            "follows on from what you've watched lately, especially Sound of Music, The",
+            "people whose overall taste resembles yours watched it"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.901,
+            "graph neighbours (LightGCN)": 0.595,
+            "content match": 0.07,
+            "recent popularity": 0.006
+          }
+        },
+        {
+          "item": 35,
+          "title": "While You Were Sleeping",
+          "reasons": [
+            "people whose overall taste resembles yours watched it",
+            "matches genres you've been watching (Comedy, Romance)"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.842,
+            "graph neighbours (LightGCN)": 0.594,
+            "content match": 0.069,
+            "co-occurrence (EASE)": 0.05
+          }
+        },
+        {
+          "item": 355,
+          "title": "Grease",
+          "reasons": [
+            "people whose overall taste resembles yours watched it",
+            "follows on from what you've watched lately, especially Sound of Music, The"
+          ],
+          "drivers": {
+            "sequence model (SASRec)": 0.839,
+            "graph neighbours (LightGCN)": 0.608,
+            "content match": 0.059,
+            "co-occurrence (EASE)": 0.027
+          }
+        }
+      ]
+    }
+  },
+  "rank_sec": 623.8,
+  "runtime_sec": 2475.3999999999996
+}
